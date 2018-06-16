@@ -1,16 +1,25 @@
 package au.com.rpn;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class RateCondition {
     String  description;
     LocalTime  startTime;
     LocalTime  endTime;
-    int     amount;
-    boolean flatRate;
     
     public RateCondition() {
+    }
+
+    public RateCondition(String description, String startTime, String endTime) {
+        this(description, LocalTime.parse(startTime), LocalTime.parse(endTime));
+    }
+
+    public RateCondition(String description, LocalTime startTime, LocalTime endTime) {
+        this.description = description;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     public String getDescription() {
@@ -45,23 +54,7 @@ public class RateCondition {
         this.endTime = endTime;
     }
 
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public boolean isFlatRate() {
-        return flatRate;
-    }
-
-    public void setFlatRate(boolean flatRate) {
-        this.flatRate = flatRate;
-    }
-
-    public boolean match(Instant timestamp) {
+    public boolean match(LocalDateTime timestamp) {
         LocalTime time = LocalTime.from(timestamp);
         return match(time);
     }
