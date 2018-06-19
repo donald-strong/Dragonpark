@@ -1,8 +1,8 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
   
-    <groupId>au.com.rpn</groupId>
-    <artifactId>rpn</artifactId>
+    <groupId>au.com.illyrian</groupId>
+    <artifactId>dragonpark</artifactId>
     <version>1</version>
   
     <packaging>jar</packaging>
@@ -41,7 +41,7 @@
         </dependency>
     </dependencies>
 
-   <build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -7,4 +7,4 @@ mvn package
 
 To run
 ------
-java -cp target/rpn-1.jar au.com.rpn.RpnApplication
+java -cp dragonpark-1.jar au.com.rpn.DragonApp
