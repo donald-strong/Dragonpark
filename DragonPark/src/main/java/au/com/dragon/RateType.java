@@ -1,4 +1,4 @@
-package au.com.rpn;
+package au.com.dragon;
 
 public enum RateType {
     FLAT_RATE("Flat Rate"),

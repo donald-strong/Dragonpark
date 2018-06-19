@@ -1,4 +1,4 @@
-package au.com.rpn;
+package au.com.dragon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import au.com.dragon.ParkingRate;
+import au.com.dragon.Rate;
+import au.com.dragon.RateCondition;
+import au.com.dragon.RatesEngine;
 import junit.framework.TestCase;
 
 public class RatesEngineTest extends TestCase {

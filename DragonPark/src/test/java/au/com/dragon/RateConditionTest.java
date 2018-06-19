@@ -1,4 +1,4 @@
-package au.com.rpn;
+package au.com.dragon;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -6,6 +6,9 @@ import java.time.LocalTime;
 import junit.framework.TestCase;
 
 import org.junit.Test;
+
+import au.com.dragon.ParkingRate;
+import au.com.dragon.RateCondition;
 
 public class RateConditionTest extends TestCase {
     public void testRateCondition() {

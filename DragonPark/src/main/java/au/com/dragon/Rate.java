@@ -1,4 +1,4 @@
-package au.com.rpn;
+package au.com.dragon;
 
 public class Rate {
     private final String rateName;
