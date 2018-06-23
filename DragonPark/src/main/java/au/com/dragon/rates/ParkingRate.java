@@ -1,6 +1,8 @@
-package au.com.dragon;
+package au.com.dragon.rates;
 
 import java.time.LocalDateTime;
+
+import au.com.dragon.RateCondition;
 
 public class ParkingRate {
     String name;

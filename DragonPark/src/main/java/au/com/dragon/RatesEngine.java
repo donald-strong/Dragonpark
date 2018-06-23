@@ -4,6 +4,9 @@ import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import au.com.dragon.rates.ParkingRate;
+import au.com.dragon.rates.Rate;
+
 public class RatesEngine {
     DecimalFormat formatter = new DecimalFormat("$##0.00");
     private final List<ParkingRate> parkingRates;

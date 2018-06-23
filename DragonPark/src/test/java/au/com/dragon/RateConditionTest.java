@@ -7,8 +7,8 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import au.com.dragon.ParkingRate;
 import au.com.dragon.RateCondition;
+import au.com.dragon.rates.ParkingRate;
 
 public class RateConditionTest extends TestCase {
     public void testRateCondition() {

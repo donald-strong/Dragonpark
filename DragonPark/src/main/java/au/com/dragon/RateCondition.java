@@ -1,10 +1,11 @@
 package au.com.dragon;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-public class RateCondition {
+import au.com.dragon.rates.RatePeriod;
+
+public class RateCondition implements RatePeriod {
     String  description;
     LocalTime  startTime;
     LocalTime  endTime;
@@ -61,5 +62,11 @@ public class RateCondition {
 
     public boolean match(LocalTime time) {
         return !startTime.isAfter(time) && !endTime.isBefore(time);
+    }
+
+    @Override
+    public boolean match(LocalDateTime entryStamp, LocalDateTime exitStamp) {
+        // TODO Auto-generated method stub
+        return false;
     }
 }
