@@ -8,4 +8,5 @@ public interface RatePeriod {
 
     boolean match(LocalDateTime entryStamp, LocalDateTime exitStamp);
 
+    boolean isMultiDay();
 }

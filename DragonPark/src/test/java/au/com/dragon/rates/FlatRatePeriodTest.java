@@ -14,7 +14,7 @@ public class FlatRatePeriodTest extends TestCase {
     private static final String MIDNIGHT = "23:59:59.999999999";
     @Test
     public void testMondayEarlyBird() {
-        FlatRatePeriod monday = new FlatRatePeriod("Monday Early Bird", "MONDAY", "06:00", "09:00", "MONDAY", "15:30", "23:30");
+        FlatRatePeriod monday = new FlatRatePeriod("EarlyBird", "Monday Early Bird", "MONDAY", "06:00", "09:00", "MONDAY", "15:30", "23:30");
         assertEquals(DayOfWeek.MONDAY, monday.getEntryDayOfWeek());
         assertEquals("06:00", monday.getEntryStart().toString());
         assertEquals("09:00", monday.getEntryEnd().toString());
@@ -32,7 +32,7 @@ public class FlatRatePeriodTest extends TestCase {
 
     @Test
     public void testTuesdayNightRate() {
-        FlatRatePeriod tuesdayNight = new FlatRatePeriod("Tuesday Night Rate", "TUESDAY", "18:00", "24:00", "WEDNESDAY", "00:00", "06:00");
+        FlatRatePeriod tuesdayNight = new FlatRatePeriod("NightRate", "Tuesday Night Rate", "TUESDAY", "18:00", "24:00", "WEDNESDAY", "00:00", "06:00");
         assertEquals(DayOfWeek.TUESDAY, tuesdayNight.getEntryDayOfWeek());
         assertEquals("18:00", tuesdayNight.getEntryStart().toString());
         assertEquals(LocalTime.MAX, tuesdayNight.getEntryEnd());
@@ -60,7 +60,7 @@ public class FlatRatePeriodTest extends TestCase {
 
     @Test
     public void testSaturdayWeekendRate() {
-        FlatRatePeriod saturday = new FlatRatePeriod("Weekend Rate", "SATURDAY", "00:00", "24:00", "SATURDAY", "00:00", "24:00");
+        FlatRatePeriod saturday = new FlatRatePeriod("WeekendRate", "Weekend Rate", "SATURDAY", "00:00", "24:00", "SATURDAY", "00:00", "24:00");
         assertEquals(DayOfWeek.SATURDAY, saturday.getEntryDayOfWeek());
         assertEquals("00:00", saturday.getEntryStart().toString());
         assertEquals(MIDNIGHT, saturday.getEntryEnd().toString());
@@ -81,7 +81,7 @@ public class FlatRatePeriodTest extends TestCase {
 
     @Test
     public void testSatSundayWeekendRate() {
-        FlatRatePeriod saturday = new FlatRatePeriod("Weekend Rate", "SATURDAY", "00:00", "24:00", "SUNDAY", "00:00", "24:00");
+        FlatRatePeriod saturday = new FlatRatePeriod("WeekendRate", "Saturday Rate", "SATURDAY", "00:00", "24:00", "SUNDAY", "00:00", "24:00");
         assertEquals(DayOfWeek.SATURDAY, saturday.getEntryDayOfWeek());
         assertEquals("00:00", saturday.getEntryStart().toString());
         assertEquals(MIDNIGHT, saturday.getEntryEnd().toString());

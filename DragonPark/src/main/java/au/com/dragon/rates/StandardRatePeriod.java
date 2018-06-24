@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -13,11 +15,22 @@ import javax.persistence.Transient;
 @Table(name = "standard_rate_period")
 public class StandardRatePeriod implements RatePeriod {
     @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    Long id;
+
+    @Column(name = "rate_name")
+    String rateName;
+
+    @Column(name="description")
     private String     description;
+    
     @Column(name = "start_hours")
     private int     startHours;
+    
     @Column(name = "end_hours")
     private int     endHours;
+    
     @Column(name = "multi_day")
     private boolean    multiDay;
 
@@ -30,11 +43,36 @@ public class StandardRatePeriod implements RatePeriod {
     public StandardRatePeriod() {
     }
     
-    public StandardRatePeriod(String description, int startHours, int endHours, boolean multiDay) {
+    public StandardRatePeriod(String rateName, String description, int startHours, int endHours, boolean multiDay) {
+        setRateName(rateName);
         setDescription(description);
         setStartHours(startHours);
         setEndHours(endHours);
         setMultiDay(multiDay);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getRateName() {
+        return rateName;
+    }
+
+    public void setRateName(String rateName) {
+        this.rateName = rateName;
+    }
+
+    public void setStartTime(Duration startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(Duration endTime) {
+        this.endTime = endTime;
     }
 
     @Override
@@ -117,10 +155,13 @@ public class StandardRatePeriod implements RatePeriod {
     @Override
     public String toString() {
         StringBuilder buf = new StringBuilder();
-        buf.append('"').append(description).append('"');
+        buf.append("StandardRatePeriod(").append(id);
+        buf.append(", ").append(rateName);
+        buf.append(", \"").append(description).append('"');
         buf.append(", startHours=").append(startHours);
         buf.append(", endHours=").append(endHours);
         buf.append(", multiDay=").append(multiDay);
+        buf.append(')');
         return buf.toString();
     }
 }

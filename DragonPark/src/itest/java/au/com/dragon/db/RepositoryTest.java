@@ -1,5 +1,6 @@
 package au.com.dragon.db;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 import java.util.List;
@@ -14,12 +15,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import au.com.dragon.parking.ParkingEvent;
 import au.com.dragon.rates.FlatRatePeriod;
+import au.com.dragon.rates.ParkingRate;
 import au.com.dragon.rates.StandardRatePeriod;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RepositoryTest {
     Logger log = LoggerFactory.getLogger(RepositoryTest.class);
+
+    @Autowired
+    ParkingRateRepository rateRepository;
 
     @Autowired
     StandardRatePeriodRepository stdRepository;
@@ -51,6 +56,25 @@ public class RepositoryTest {
         for (FlatRatePeriod period : flatRates) {
             log.info("Standard Rate: {}", period);
         }
+    }
+    
+    @Test
+    public void testEarlyBirdRepository() {
+        List<FlatRatePeriod> flatRates = flatRepository.findByRateName("EarlyBird");
+        assertFalse("findByRateName(\"EarlyBird\") is empty", flatRates.isEmpty());
+        for (FlatRatePeriod period : flatRates) {
+            log.info("Standard Rate: {}", period);
+            assertEquals("EarlyBird", period.getRateName());
+        }
+    }
+    
+    @Test
+    public void testRateRepository() {
+       List<ParkingRate> parkingRates = rateRepository.findAll();
+        assertFalse("ParkingRateRepository is empty", parkingRates.isEmpty());
+        for (ParkingRate rate : parkingRates) {
+            log.info("Parking Rate: {}", rate);
+        }    
     }
     
     @Test

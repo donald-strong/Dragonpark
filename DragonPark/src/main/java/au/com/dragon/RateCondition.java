@@ -66,7 +66,11 @@ public class RateCondition implements RatePeriod {
 
     @Override
     public boolean match(LocalDateTime entryStamp, LocalDateTime exitStamp) {
-        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isMultiDay() {
         return false;
     }
 }

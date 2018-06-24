@@ -92,11 +92,13 @@ public class ParkingEvent {
         LocalDateTimeConverter timeConverter = new LocalDateTimeConverter();
         RateStringConverter rateConverter = new RateStringConverter();
         StringBuilder buf = new StringBuilder();
+        buf.append("ParkingEvent(");
         buf.append(id);
         buf.append(", entryDay=").append(timeConverter.convertToDatabaseColumn(entryDate));
         buf.append(", exitDay=").append(timeConverter.convertToDatabaseColumn(exitDate));
         buf.append(", rate=").append(rateConverter.convertToDatabaseColumn(rate));
         buf.append(", rateName=").append(rateName);
+        buf.append(')');
         return buf.toString();
     }
 }

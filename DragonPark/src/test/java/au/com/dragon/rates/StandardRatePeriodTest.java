@@ -11,7 +11,7 @@ import junit.framework.TestCase;
 public class StandardRatePeriodTest extends TestCase {
     @Test
     public void testOneHourRate() {
-        StandardRatePeriod rate = new StandardRatePeriod("0-1 hours", 0, 1, false);
+        StandardRatePeriod rate = new StandardRatePeriod("OneHour", "0-1 hours", 0, 1, false);
         assertEquals("0-1 hours", rate.getDescription());
         assertEquals(Duration.ZERO, rate.getStartTime());
         assertEquals(Duration.ofHours(1), rate.getEndTime());
@@ -30,7 +30,7 @@ public class StandardRatePeriodTest extends TestCase {
 
     @Test
     public void testTwoHourRate() {
-        StandardRatePeriod rate = new StandardRatePeriod("1-2 hours", 1, 2, false);
+        StandardRatePeriod rate = new StandardRatePeriod("TwoHours", "1-2 hours", 1, 2, false);
         assertEquals("1-2 hours", rate.getDescription());
         assertEquals(Duration.ofHours(1), rate.getStartTime());
         assertEquals(Duration.ofHours(2), rate.getEndTime());
@@ -52,7 +52,7 @@ public class StandardRatePeriodTest extends TestCase {
 
     @Test
     public void testThreeHourRate() {
-        StandardRatePeriod rate = new StandardRatePeriod("2-3 hours", 2, 3, false);
+        StandardRatePeriod rate = new StandardRatePeriod("ThreeHours", "2-3 hours", 2, 3, false);
         assertEquals("2-3 hours", rate.getDescription());
         assertEquals(Duration.ofHours(2), rate.getStartTime());
         assertEquals(Duration.ofHours(3), rate.getEndTime());
@@ -74,7 +74,7 @@ public class StandardRatePeriodTest extends TestCase {
 
     @Test
     public void testWholeDayRate() {
-        StandardRatePeriod rate = new StandardRatePeriod("3+ hours", 3, 24, false);
+        StandardRatePeriod rate = new StandardRatePeriod("FourHours", "3+ hours", 3, 24, false);
         assertEquals("3+ hours", rate.getDescription());
         assertEquals(Duration.ofHours(3), rate.getStartTime());
         assertEquals(Duration.ofHours(24), rate.getEndTime());
@@ -97,7 +97,7 @@ public class StandardRatePeriodTest extends TestCase {
 
     @Test
     public void testMultiDayRate() {
-        StandardRatePeriod rate = new StandardRatePeriod("MultiDay", 3, 24, true);
+        StandardRatePeriod rate = new StandardRatePeriod("MoreHours", "MultiDay", 3, 24, true);
         assertEquals("MultiDay", rate.getDescription());
         assertEquals(Duration.ofHours(3), rate.getStartTime());
         assertEquals(Duration.ofHours(24), rate.getEndTime());
