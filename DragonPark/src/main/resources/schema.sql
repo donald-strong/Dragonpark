@@ -18,3 +18,12 @@
         primary key (description)
     );
     
+    create table parking_event (
+        id int primary key auto_increment,
+        entry_date varchar(50) not null,
+        exit_date varchar(50) not null,
+        rate      varchar(20) not null,
+        rate_name varchar(50) not null,
+        primary key (id)
+    );
+    

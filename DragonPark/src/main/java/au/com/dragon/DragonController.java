@@ -13,6 +13,7 @@ import au.com.dragon.rates.Rate;
 public class DragonController {
     private final RatesEngine engine;
     
+    // FIXME RatesEngine not an entity bean
     public DragonController(RatesEngine engine) {
         this.engine = engine;
     }
